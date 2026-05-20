@@ -1,28 +1,27 @@
 import { defineConfig } from 'vitepress'
 
-// https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "EnderRealm-DOCS",
-  description: "EnderRealm document site",
+  title: "EnderRealm 文档",
+  description: "EnderRealm 官方文档站点",
   themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      { text: '首页', link: '/' },
+      { text: '协议与政策', link: '/协议与政策/' }
     ],
 
     sidebar: [
       {
-        text: 'Examples',
+        text: '协议与政策',
         items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
+          { text: '基本章程', link: '/协议与政策/EnderRealm基本章程' },
+          { text: '玩家守则', link: '/协议与政策/EnderRealm玩家守则' },
+          { text: '隐私政策', link: '/协议与政策/EnderRealm隐私政策' }
         ]
       }
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/EnderRealmMC/EnderRealm-DOCS' }
     ]
   }
 })
