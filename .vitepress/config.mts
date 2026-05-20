@@ -29,6 +29,10 @@ export default defineConfig({
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/EnderRealmMC/EnderRealm-DOCS' }
-    ]
+    ],
+
+    footer: {
+      copyright: '© 2022-present EnderRealm. All rights reserved.'
+    }
   }
 })
