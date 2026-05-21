@@ -34,6 +34,31 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/EnderRealmMC/EnderRealm-DOCS' }
     ],
 
+    outline: {
+      label: '页面导航'
+    },
+
+    search: {
+      provider: 'local',
+      options: {
+        translations: {
+          button: {
+            buttonText: '搜索',
+            buttonAriaLabel: '搜索'
+          },
+          modal: {
+            noResultsText: '没有找到结果',
+            resetButtonTitle: '重置搜索',
+            footer: {
+              selectText: '选择',
+              navigateText: '导航',
+              closeText: '关闭'
+            }
+          }
+        }
+      }
+    },
+
     footer: {
       copyright: '© 2022-present EnderRealm. All rights reserved.'
     }
