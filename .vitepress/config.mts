@@ -46,6 +46,10 @@ export default defineConfig({
       next: '下一页'
     },
 
+    darkModeSwitchLabel: '外观',
+    darkModeSwitchTitle: '切换暗色模式',
+    lightModeSwitchTitle: '切换亮色模式',
+
     search: {
       provider: 'local',
       options: {
