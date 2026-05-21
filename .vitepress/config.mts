@@ -38,6 +38,14 @@ export default defineConfig({
       label: '页面导航'
     },
 
+    returnToTopLabel: '回到顶部',
+    sidebarMenuLabel: '菜单',
+
+    docFooter: {
+      prev: '上一页',
+      next: '下一页'
+    },
+
     search: {
       provider: 'local',
       options: {
