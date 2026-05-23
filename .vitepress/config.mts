@@ -3,6 +3,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "EnderRealm DOCS",
   description: "EnderRealm 官方文档站点",
+  lastUpdated: true,
   themeConfig: {
     nav: [
       { text: '首页', link: '/' },
@@ -49,6 +50,14 @@ export default defineConfig({
     darkModeSwitchLabel: '外观',
     darkModeSwitchTitle: '切换暗色模式',
     lightModeSwitchTitle: '切换亮色模式',
+
+    lastUpdated: {
+      text: '最后更新于',
+      formatOptions: {
+        dateStyle: 'short',
+        timeStyle: 'medium'
+      }
+    },
 
     search: {
       provider: 'local',
