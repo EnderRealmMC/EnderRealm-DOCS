@@ -1,6 +1,12 @@
 import { defineConfig } from 'vitepress'
-import { directoryPlugin } from './plugins/directory'
+import { generateDirectory } from './plugins/directory'
 import path from 'path'
+
+// 在配置加载时同步生成目录文件（必须在 VitePress 扫描 .md 文件之前）
+generateDirectory(
+  path.resolve(__dirname, '..'),
+  path.resolve(__dirname, '..', '目录.md')
+)
 
 export default defineConfig({
   title: "EnderRealm DOCS",
@@ -19,14 +25,6 @@ export default defineConfig({
       dangerLabel: '危险',
       detailsLabel: '详细信息'
     }
-  },
-  vite: {
-    plugins: [
-      directoryPlugin(
-        path.resolve(__dirname, '..'),
-        path.resolve(__dirname, '..', '目录.md')
-      )
-    ]
   },
   themeConfig: {
     nav: [
