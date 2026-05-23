@@ -2,11 +2,26 @@ import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   title: "EnderRealm DOCS",
-  description: "EnderRealm 官方文档站点",
+  description: "EnderRealm 文档站点，由社区与官方共同维护",
   lastUpdated: true,
+  head: [
+    ['link', { rel: 'icon', href: '/favicon.png' }]
+  ],
+  sitemap: {
+    hostname: 'https://docs.enderrealm.cn'
+  },
+  markdown: {
+    container: {
+      tipLabel: '提示',
+      warningLabel: '警告',
+      dangerLabel: '危险',
+      detailsLabel: '详细信息'
+    }
+  },
   themeConfig: {
     nav: [
       { text: '首页', link: '/' },
+      { text: '目录', link: '/目录' },
       {
         text: '协议与政策',
         items: [
@@ -78,6 +93,11 @@ export default defineConfig({
           }
         }
       }
+    },
+
+    editLink: {
+      pattern: 'https://github.com/EnderRealmMC/EnderRealm-DOCS/edit/main/:path',
+      text: '在 GitHub 上编辑此页面'
     },
 
     footer: {
