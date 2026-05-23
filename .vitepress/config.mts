@@ -1,4 +1,6 @@
 import { defineConfig } from 'vitepress'
+import { directoryPlugin } from './plugins/directory'
+import path from 'path'
 
 export default defineConfig({
   title: "EnderRealm DOCS",
@@ -17,6 +19,14 @@ export default defineConfig({
       dangerLabel: '危险',
       detailsLabel: '详细信息'
     }
+  },
+  vite: {
+    plugins: [
+      directoryPlugin(
+        path.resolve(__dirname, '..'),
+        path.resolve(__dirname, '..', '目录.md')
+      )
+    ]
   },
   themeConfig: {
     nav: [
