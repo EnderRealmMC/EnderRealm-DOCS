@@ -99,7 +99,11 @@ export function generateDirectory(rootDir: string, outputFile: string) {
   const tree = scanDirectory(rootDir, '', true)
   const htmlTree = generateHtmlTree(tree)
   
-  const content = `# 文档目录
+  const content = `---
+editLink: false
+---
+
+# 文档目录
 ::: tip
 本页面由系统自动生成，无需自行维护
 :::
