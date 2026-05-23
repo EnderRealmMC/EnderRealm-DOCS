@@ -9,6 +9,7 @@ generateDirectory(
 )
 
 export default defineConfig({
+  lang: 'zh-CN',
   title: "EnderRealm DOCS",
   description: "EnderRealm 文档站点，由社区与官方共同维护",
   lastUpdated: true,
