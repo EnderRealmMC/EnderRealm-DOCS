@@ -3,7 +3,7 @@ import path from 'path'
 
 interface TreeNode {
   name: string
-  path: string
+  path: string | undefined
   isDirectory: boolean
   children: TreeNode[]
 }
@@ -34,14 +34,17 @@ function scanDirectory(dirPath: string, basePath: string = '', isRoot: boolean =
       const relativePath = basePath ? `${basePath}/${entry.name}` : entry.name
       
       if (entry.isDirectory()) {
-        // 检查目录是否有 index.md
-        const indexPath = path.join(fullPath, 'index.md')
-        if (fs.existsSync(indexPath)) {
-          const children = scanDirectory(fullPath, relativePath, false)
+        // 扫描子目录
+        const children = scanDirectory(fullPath, relativePath, false)
+        
+        // 只有当目录有内容时才添加（避免空目录）
+        if (children.length > 0) {
+          const indexPath = path.join(fullPath, 'index.md')
+          const hasIndex = fs.existsSync(indexPath)
           
           items.push({
             name: entry.name,
-            path: `/${relativePath}/`,
+            path: hasIndex ? `/${relativePath}/` : undefined,
             isDirectory: true,
             children
           })
@@ -76,9 +79,11 @@ function generateHtmlTree(nodes: TreeNode[], level: number = 0): string {
     const connector = isLastItem ? '└── ' : '├── '
     
     if (node.isDirectory) {
-      // 目录节点
-      const link = `<a href="${node.path}">${node.name}</a>`
-      result += `${indent}${connector}${link}\n`
+      // 目录节点：如果有路径则生成链接，否则只显示名称
+      const display = node.path 
+        ? `<a href="${node.path}">${node.name}</a>` 
+        : node.name
+      result += `${indent}${connector}${display}\n`
       result += generateHtmlTree(node.children, level + 1)
     } else {
       // 文件节点
