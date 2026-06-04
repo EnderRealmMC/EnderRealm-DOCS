@@ -64,6 +64,13 @@ function scanDirectory(dirPath: string, basePath: string = '', isRoot: boolean =
     console.error(`Error scanning directory ${dirPath}:`, error)
   }
   
+  // 排序：目录在前，文件在后
+  items.sort((a, b) => {
+    if (a.isDirectory && !b.isDirectory) return -1
+    if (!a.isDirectory && b.isDirectory) return 1
+    return 0
+  })
+  
   return items
 }
 
@@ -79,10 +86,11 @@ function generateHtmlTree(nodes: TreeNode[], level: number = 0): string {
     const connector = isLastItem ? '└── ' : '├── '
     
     if (node.isDirectory) {
-      // 目录节点：如果有路径则生成链接，否则只显示名称
+      // 目录节点：如果有路径则生成链接，否则只显示名称，目录名带斜杠
+      const displayName = `${node.name}/`
       const display = node.path 
-        ? `<a href="${node.path}">${node.name}</a>` 
-        : node.name
+        ? `<a href="${node.path}">${displayName}</a>` 
+        : displayName
       result += `${indent}${connector}${display}\n`
       result += generateHtmlTree(node.children, level + 1)
     } else {
