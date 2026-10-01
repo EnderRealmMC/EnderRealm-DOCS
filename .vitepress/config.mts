@@ -1,17 +1,17 @@
 import { defineConfig } from 'vitepress'
-import { generateDirectory } from './plugins/directory'
+import { generateDirectory, directoryVitePlugin } from './plugins/directory'
 import llmstxt from 'vitepress-plugin-llms'
 import path from 'path'
 
-// 在配置加载时同步生成目录文件（必须在 VitePress 扫描 .md 文件之前）
-generateDirectory(
-  path.resolve(__dirname, '..'),
-  path.resolve(__dirname, '..', '目录.md')
-)
+const docsRoot = path.resolve(__dirname, '..')
+const directoryFile = path.resolve(docsRoot, '目录.md')
+
+// 配置加载时同步生成目录文件（必须在 VitePress 扫描 .md 文件之前）
+generateDirectory(docsRoot, directoryFile)
 
 export default defineConfig({
   vite: {
-    plugins: [llmstxt()],
+    plugins: [llmstxt(), directoryVitePlugin(docsRoot, directoryFile)],
   },
 
   lang: 'zh-CN',
