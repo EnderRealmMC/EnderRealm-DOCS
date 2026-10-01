@@ -45,6 +45,7 @@ export default defineConfig({
           { text: '公示名单', link: '/官方文档/公示名单/' }
         ]
       },
+      { text: '玩法图鉴', link: '/玩法图鉴/' },
       { text: '圣经', link: '/圣经/' }
     ],
 
@@ -73,10 +74,12 @@ export default defineConfig({
         ]
       },
       {
+        text: '玩法图鉴',
+        link: '/玩法图鉴/'
+      },
+      {
         text: '圣经',
-        items: [
-          { text: '数据说话', link: '/圣经/数据说话' }
-        ]
+        link: '/圣经/'
       }
     ],
 
