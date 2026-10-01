@@ -37,25 +37,43 @@ export default defineConfig({
       { text: '首页', link: '/' },
       { text: '目录', link: '/目录' },
       {
-        text: '协议与政策',
+        text: '官方文档',
         items: [
-          { text: 'EnderRealm 基本章程', link: '/协议与政策/EnderRealm基本章程' },
-          { text: 'EnderRealm 玩家守则', link: '/协议与政策/EnderRealm玩家守则' },
-          { text: 'EnderRealm 隐私政策', link: '/协议与政策/EnderRealm隐私政策' },
-          { text: 'EnderRealm 用户协议', link: '/协议与政策/EnderRealm用户协议' }
+          { text: '协议与政策', link: '/官方文档/协议与政策/' },
+          { text: '公示名单', link: '/官方文档/公示名单/' }
         ]
-      }
+      },
+      { text: '圣经', link: '/圣经/' }
     ],
 
     sidebar: [
       {
         text: '协议与政策',
         items: [
-          { text: 'EnderRealm 基本章程', link: '/协议与政策/EnderRealm基本章程' },
-          { text: 'EnderRealm 玩家守则', link: '/协议与政策/EnderRealm玩家守则' },
-          { text: 'EnderRealm 隐私政策', link: '/协议与政策/EnderRealm隐私政策' },
-          { text: 'EnderRealm 用户协议', link: '/协议与政策/EnderRealm用户协议' }
-
+          { text: 'EnderRealm 基本章程', link: '/官方文档/协议与政策/EnderRealm基本章程' },
+          { text: 'EnderRealm 玩家守则', link: '/官方文档/协议与政策/EnderRealm玩家守则' },
+          { text: 'EnderRealm 隐私政策', link: '/官方文档/协议与政策/EnderRealm隐私政策' },
+          { text: 'EnderRealm 用户协议', link: '/官方文档/协议与政策/EnderRealm用户协议' },
+          {
+            text: 'EnderRealm帮帮',
+            collapsed: true,
+            items: [
+              { text: 'EnderRealm帮帮 用户协议', link: '/官方文档/协议与政策/EnderRealm帮帮/EnderRealm帮帮用户协议' },
+              { text: 'EnderRealm帮帮 隐私政策', link: '/官方文档/协议与政策/EnderRealm帮帮/EnderRealm帮帮隐私政策' }
+            ]
+          }
+        ]
+      },
+      {
+        text: '公示名单',
+        items: [
+          { text: 'EnderRealm 内务黑名单', link: '/官方文档/公示名单/EnderRealm内务黑名单' }
+        ]
+      },
+      {
+        text: '圣经',
+        items: [
+          { text: '数据说话', link: '/圣经/数据说话' }
         ]
       }
     ],

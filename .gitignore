@@ -22,3 +22,6 @@ npm-debug.log*
 
 # Auto-generated directory
 目录.md
+
+# ZCode workspace files
+.zcode/

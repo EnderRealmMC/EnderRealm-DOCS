@@ -6,6 +6,12 @@ hero:
   text: "文档站点"
   tagline: 欢迎来到 EnderRealm 社区文档中心
   actions:
+    - theme: brand
+      text: 官方文档
+      link: /官方文档/
+    - theme: alt
+      text: 目录
+      link: /目录
     - theme: alt
       text: GitHub
       link: https://github.com/EnderRealmMC/EnderRealm-DOCS
