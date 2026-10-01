@@ -18,6 +18,8 @@ export default defineConfig({
   title: "EnderRealm DOCS",
   description: "EnderRealm 文档站点，由社区与官方共同维护",
   lastUpdated: true,
+  // 与主站一致：仅提供暗色外观，不提供切换
+  appearance: 'force-dark',
   head: [
     ['link', { rel: 'icon', href: '/favicon.png' }]
   ],
