@@ -187,6 +187,77 @@ div[class*='language-'],
 }
 
 /**
+ * 按钮：官网同款立体按压
+ *
+ * 还原官网 Button.astro 的参数：静置时底边 4px / 顶边 2px 亮色高光，
+ * 按下时底边收窄到 2px、顶边加厚到 3px 并切换边缘配色，配合亮度变化
+ * 形成按压手感。dev 下 VP 组件样式注入晚于主题样式，故用 !important
+ * 锁定这些长写属性。
+ * -------------------------------------------------------------------------- */
+
+.VPButton {
+	border-style: solid !important;
+	border-width: 2px !important;
+	border-bottom-width: 4px !important;
+	transition:
+		border-width 0.1s,
+		filter 0.1s,
+		background-color 0.25s !important;
+}
+
+.VPButton:hover {
+	filter: brightness(1.1);
+}
+
+.VPButton:active {
+	filter: brightness(0.9);
+	border-top-width: 3px !important;
+	border-bottom-width: 2px !important;
+}
+
+/* primary：绿色系边缘 */
+.VPButton.brand {
+	border-top-color: var(--color-accent-light) !important;
+	border-left-color: var(--color-accent-hover) !important;
+	border-right-color: var(--color-accent-hover) !important;
+	border-bottom-color: var(--color-accent-hover) !important;
+}
+
+.VPButton.brand:hover {
+	background-color: var(--color-accent) !important;
+	border-color: var(--color-accent-hover) !important;
+	border-top-color: var(--color-accent-light) !important;
+}
+
+.VPButton.brand:active {
+	background-color: var(--color-accent-hover) !important;
+	border-color: var(--color-accent-hover) !important;
+	border-top-color: var(--color-accent-dark) !important;
+	border-bottom-color: var(--color-accent-light) !important;
+}
+
+/* secondary：灰色系边缘 */
+.VPButton.alt {
+	border-top-color: var(--color-ink) !important;
+	border-left-color: var(--color-btn-hover) !important;
+	border-right-color: var(--color-btn-hover) !important;
+	border-bottom-color: var(--color-btn-hover) !important;
+}
+
+.VPButton.alt:hover {
+	background-color: var(--color-btn) !important;
+	border-color: var(--color-btn-hover) !important;
+	border-top-color: var(--color-ink) !important;
+}
+
+.VPButton.alt:active {
+	background-color: var(--color-btn-hover) !important;
+	border-color: var(--color-btn-hover) !important;
+	border-top-color: var(--color-btn-dark) !important;
+	border-bottom-color: var(--color-ink) !important;
+}
+
+/**
  * 导航栏：sticky + surface 实底 + 底部 edge 描边
  * -------------------------------------------------------------------------- */
 
